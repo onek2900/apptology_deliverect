@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_normal_form_view" model="ir.ui.view">
+        <field name="name">product.product.view.form.inherit.product_details</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Deliverect" name="deliverect">
+                    <group>
+                        <group string="Product Info">
+                            <field name="allergens_and_tag_ids" widget="many2many_tags"/>
+                            <field name="modifier_group_ids" widget="many2many_tags"/>
+                            <field name="product_arabicname"/>
+                            <field name="product_note"/>
+                            <field name="product_note_arabic"/>
+                        </group>
+                        <group string="Channel Info">
+                            <field name="channel_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+            <xpath expr="//group/field[@name='detailed_type']" position="before">
+                <field name="is_modifier"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
