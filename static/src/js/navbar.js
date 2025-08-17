@@ -15,7 +15,7 @@ patch(Navbar.prototype, {
         this.busService.addEventListener('notification', ({detail: notifications})=>{
             notifications = notifications.filter(item => item.payload.channel === this.channel)
             notifications.forEach(item => {
-                this.playNotificationSound();
+            this.playNotificationSound();
                 var notificationMessage=item.payload.order_status=='success'?"New Online Order Received":"Failed to receive online order"
                 this.notification.add(_t(notificationMessage), { type: "info",
                                                          sticky: true});
@@ -74,11 +74,11 @@ patch(Navbar.prototype, {
         }
     },
     /**
-     * Starts polling for online order count every 10 seconds.
+     * Starts polling for online order count every 30 seconds.
      */
     async startPollingOrderCount() {
         this.pollingOrderCountInterval=setInterval(() => {
             this.onlineOrderCount();
-        }, 10000);
+        }, 30000);
     },
 });
